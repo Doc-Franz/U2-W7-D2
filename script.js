@@ -21,11 +21,14 @@ userForm.onsubmit = (e) => {
 let contSeconds = sessionStorage.getItem("check-seconds-session") ? parseInt(sessionStorage.getItem("check-seconds-session")) : 0;
 
 const checkSeconds = document.getElementById("check-seconds");
+const timer = document.querySelector(".timer > p");
 
 window.addEventListener("DOMContentLoaded", function () {
+  timer.innerText = contSeconds;
   setInterval(() => {
     contSeconds += 1;
     sessionStorage.setItem("check-seconds-session", contSeconds);
+    timer.innerText = contSeconds;
   }, 1000);
   checkSeconds.onclick = () => {
     console.log(contSeconds);
